@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 antialiased;
+    background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&q=80&w=2400');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply relative;
+  }
+  
+  .page-container::before {
+    content: '';
+    @apply absolute inset-0 bg-white/90 backdrop-blur-sm -z-10;
+  }
+
+  .brand-gradient {
+    @apply bg-gradient-to-r from-amber-400 to-yellow-600;
+  }
+  
+  .brand-text {
+    @apply bg-gradient-to-r from-amber-400 to-yellow-600 text-transparent bg-clip-text;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 4px 20px rgba(218, 165, 32, 0.15);
+  }
+  
+  .card-gradient {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(218, 165, 32, 0.1) 60%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  
+  .swipe-button {
+    @apply w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110;
+  }
+  
+  .swipe-button-pass {
+    @apply bg-white text-red-500;
+  }
+  
+  .swipe-button-like {
+    @apply brand-gradient text-white;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
